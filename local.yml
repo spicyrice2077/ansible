@@ -24,3 +24,6 @@
 
     - name: Cron
       ansible.builtin.import_tasks: tasks/cron.yml
+
+    - name: Users
+      ansible.builtin.import_tasks: tasks/users.yml
