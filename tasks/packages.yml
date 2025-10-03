@@ -1,11 +1,17 @@
-- name: Install packages
+- name: Gather package facts
+  package_facts:
+    manager: auto
+
+- name: Install only available packages
   package:
-    name:
-      - cmatrix
-      - ranger
-      - nmap
-      - htop
-      - feroxbuster
-      - autorecon
+    name: "{{ item }}"
     state: present
-  failed_when: false
+  loop:
+    - cmatrix
+    - ranger
+    - nmap
+    - htop
+    - feroxbuster
+    - autorecon
+  when: item not in ansible_facts.packages
+  ignore_errors: yes
