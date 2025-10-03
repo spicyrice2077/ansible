@@ -1,9 +1,3 @@
-- name: Ensure ansible user exists
-  user:
-    name: ansible
-    shell: /bin/bash
-    create_home: yes
-
 - name: Install cron job (ansible-pull)
   cron:
     user: ansible
