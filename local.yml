@@ -1,0 +1,26 @@
+- hosts: localhost
+  connection: local
+  become: true
+  gather_facts: yes
+
+  pre_tasks:
+    - name: Update packages on Debian/Ubuntu
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: yes
+        cache_valid_time: 3600
+      when: ansible_os_family == "Debian"
+
+    - name: Update packages on RHEL/Fedora
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+        update_cache: yes
+      when: ansible_os_family == "RedHat"
+
+  tasks:
+    - name: Packages
+      ansible.builtin.import_tasks: tasks/packages.yml
+
+    - name: Cron
+      ansible.builtin.import_tasks: tasks/cron.yml
