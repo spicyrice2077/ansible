@@ -13,5 +13,6 @@
     - htop
     - feroxbuster
     - autorecon
+    - vscodium
   when: item not in ansible_facts.packages
   ignore_errors: yes
