@@ -8,3 +8,4 @@
       - feroxbuster
       - autorecon
     state: present
+  failed_when: false
