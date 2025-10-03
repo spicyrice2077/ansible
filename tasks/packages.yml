@@ -14,5 +14,6 @@
     - feroxbuster
     - autorecon
     - vscodium
+    - rlwrap
   when: item not in ansible_facts.packages
   ignore_errors: yes
