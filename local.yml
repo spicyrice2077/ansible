@@ -19,11 +19,11 @@
       when: ansible_os_family == "RedHat"
 
   tasks:
-    - name: Packages
-      ansible.builtin.import_tasks: tasks/packages.yml
+    - name: Users
+      ansible.builtin.import_tasks: tasks/users.yml
 
     - name: Cron
       ansible.builtin.import_tasks: tasks/cron.yml
 
-    - name: Users
-      ansible.builtin.import_tasks: tasks/users.yml
+    - name: Packages
+      ansible.builtin.import_tasks: tasks/packages.yml
